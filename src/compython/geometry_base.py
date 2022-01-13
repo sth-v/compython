@@ -1,8 +1,6 @@
-import math
 import numpy as np
 from scipy.spatial import ConvexHull
 from sklearn.cluster import KMeans
-
 
 
 def point_line_side(points, line_start, line_end):
@@ -50,17 +48,15 @@ def min_bound(points):
     hull_points = points[ConvexHull(points).vertices]
 
     # calculate edge angles
-    edges = np.zeros((len(hull_points) - 1, 2))
+    np.zeros((len(hull_points) - 1, 2))
     edges = hull_points[1:] - hull_points[:-1]
 
-    angles = np.zeros((len(edges)))
+    np.zeros((len(edges)))
     angles = np.arctan2(edges[:, 1], edges[:, 0])
 
     angles = np.abs(np.mod(angles, pi2))
     angles = np.unique(angles)
 
-    # find rotation matrices
-    # XXX both work
     rotations = np.vstack([
         np.cos(angles),
         np.cos(angles - pi2),
@@ -141,7 +137,7 @@ class Domain:
         step = self.length / steps
         rng = []
         for i in range(steps):
-            rng.append(self.start + (i * step))
+            rng.append(float(self.start) + (i * step))
         return rng
 
 
@@ -172,7 +168,6 @@ class ParamFunc:
             first, second = func(self, a, b)
             inst = UV(first, second, self.min, self.max, self.__xf, self.__yf, self.__zf)
             return inst
-
         return wrap
 
     @evaluate

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="compython",
-    version='0.0.5',
+    version='0.0.6',
     author="Andrew Astakhov",
     author_email="aw.astakhov@gmail.com",
     description="compython",
