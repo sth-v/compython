@@ -4,7 +4,6 @@ from scipy.spatial import ConvexHull
 from sklearn.cluster import KMeans
 
 
-
 def point_line_side(points, line_start, line_end):
     left_side = []
     right_side = []
@@ -39,7 +38,6 @@ def min_bound(points):
     """
     Find the smallest bounding rectangle for a set of points.
     Returns a set of points representing the corners of the bounding box.
-
     :param points: a nx2 matrix of coordinates
     :rval: a nx2 matrix of coordinates
     """

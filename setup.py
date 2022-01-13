@@ -20,7 +20,7 @@ setuptools.setup(
     project_urls={
         "Bug Tracker": "https://github.com/sth-v/compython/issues",
     },
-    install_requires=["numpy>=1.16.6", "scipy>=1.7.1", "sklearn>=1.0.1"],
+    install_requires=["numpy>=1.16.6", "scipy>=1.7.1", "scikit-learn>=1.0.1"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
