@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: compython
+Version: 0.0.6
+Summary: compython
+Home-page: https://github.com/sth-v/compython
+Author: Andrew Astakhov
+Author-email: aw.astakhov@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/sth-v/compython/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# compython
+
+geometry
+
+
+
+Install:
+
+`pip install compython`
+
+
