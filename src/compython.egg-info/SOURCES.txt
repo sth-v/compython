@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/compython/__init__.py
+src/compython/consts.py
+src/compython/geometry_base.py
+src/compython.egg-info/PKG-INFO
+src/compython.egg-info/SOURCES.txt
+src/compython.egg-info/dependency_links.txt
+src/compython.egg-info/top_level.txt
