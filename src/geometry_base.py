@@ -1,6 +1,8 @@
+import math
 import numpy as np
 from scipy.spatial import ConvexHull
 from sklearn.cluster import KMeans
+
 
 
 def point_line_side(points, line_start, line_end):
