@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='compython',
-    version='0.0.1',
+    version='0.0.3',
     packages=['src'],
     url='https://github.com/sth-v/compython.git',
     license='MIT',
