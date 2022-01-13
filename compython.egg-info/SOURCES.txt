@@ -7,4 +7,5 @@ compython.egg-info/SOURCES.txt
 compython.egg-info/dependency_links.txt
 compython.egg-info/top_level.txt
 src/__init__.py
+src/consts.py
 src/geometry_base.py
