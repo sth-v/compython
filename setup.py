@@ -1,11 +1,16 @@
 import setuptools
+import time
+
+lt = time.localtime()
+ver = f'{lt[0]}.{lt[1]}.{lt[2]}-{lt[3]}'
+
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="compython",
-    version='0.0.6',
+    version=ver,
     author="Andrew Astakhov",
     author_email="aw.astakhov@gmail.com",
     description="compython",
@@ -15,13 +20,14 @@ setuptools.setup(
     project_urls={
         "Bug Tracker": "https://github.com/sth-v/compython/issues",
     },
-
+    install_requires=['numpy, scipy, sklearn'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.6",
+    python_requires='3.9',
 )
