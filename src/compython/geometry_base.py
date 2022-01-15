@@ -4,6 +4,15 @@ from scipy.spatial import ConvexHull
 from sklearn.cluster import KMeans
 
 
+def distance(pointA, pointB):
+    dist = []
+    first = self.pointlist[0]
+    for k in range(self.pointlist.Count):
+        f = first.distance(self.pointlist[k])
+        dist.append((self.pointlist[k], f))
+        dist.sort(key=lambda x: x[1])
+    return dist
+
 def point_line_side(points, line_start, line_end):
     left_side = []
     right_side = []
@@ -118,7 +127,6 @@ def p_kmeans(f, p: int):
     """
     return KMeans(n_clusters=p, random_state=0).fit(f)
 
-
 class Domain:
 
     def __init__(self, start=float, end=float):
@@ -141,6 +149,84 @@ class Domain:
         for i in range(steps):
             rng.append(self.start + (i * step))
         return rng
+
+class Point_3d(object):
+
+    def __init__(self, x: float, y:float, z:float):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __str__(self):
+        return f'point [{self.x} { self.y} {self.z}]'
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
+    def __hash__(self):
+        return hash((self.x, self.y, self.z))
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y, self.z + other.z)
+
+    def __rmul__(self, c):
+        return Point(c * self.x, c * self.y, c * self.z)
+
+    def close(self, that, epsilon=0.01):
+        return self.dist(that) < epsilon
+
+    def dist(self, that):
+        return sqrt(self.sqrDist(that))
+
+    def sqrDist(self, that):
+        dx = self.x - that.x
+        dy = self.y - that.y
+        dz = self.z - that.z
+        return dx * dx + dy * dy + dz * dz
+
+    def np(self):
+        """Returns the point's Numpy point representation"""
+        return [self.x, self.y, self.z]
+
+
+
+
+
+class Line(object):
+
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+
+        if p1.x == p2.x:
+            self.slope = None
+            self.intercept = None
+            self.vertical = True
+        else:
+            self.slope = float(p2.y - p1.y) / (p2.x - p1.x)
+            self.intercept = p1.y - self.slope * p1.x
+            self.vertical = False
+
+    def __str__(self):
+        if self.vertical:
+            return "x = " + str(self.p1.x)
+        return "y = " + str(self.slope) + "x + " + str(self.intercept)
+
+    def __eq__(self, other):
+        if self.vertical != other.vertical:
+            return False
+
+        if self.vertical:
+            return self.p1.x == other.p1.x
+
+        return self.slope == other.slope and self.intercept == other.intercept
+
+    def atX(self, x):
+        if self.vertical:
+            return None
+
+        return Point(x, self.slope * x + self.intercept)
+
 
 
 class UV:
