@@ -13,6 +13,7 @@ def distance(pointA, pointB):
         dist.sort(key=lambda x: x[1])
     return dist
 
+
 def point_line_side(points, line_start, line_end):
     left_side = []
     right_side = []
@@ -47,6 +48,7 @@ def min_bound(points):
     """
     Find the smallest bounding rectangle for a set of points.
     Returns a set of points representing the corners of the bounding box.
+
     :param points: a nx2 matrix of coordinates
     :rval: a nx2 matrix of coordinates
     """
